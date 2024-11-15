@@ -1,0 +1,30 @@
+###
+GET http://localhost:8081/users/all
+
+###
+POST http://localhost:8081/users/create
+Content-Type: application/json
+
+{
+    "username":"Marck",  
+    "useremail":"marck@marck.com",
+    "password":"marck123456",
+    "profile":"user",
+    "avatar":"invalid"
+}
+
+###
+PUT http://localhost:8081/users/update
+Content-Type: application/json
+
+{
+    "id":1,
+    "username":"Marck",  
+    "useremail":"marck@marck.com",
+    "password":"marck1234567",
+    "profile":"user",
+    "avatar":"invalid"
+}
+
+###
+DELETE http://localhost:8081/users/delete/1
