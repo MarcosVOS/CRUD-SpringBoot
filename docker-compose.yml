@@ -8,10 +8,24 @@ services:
       - MYSQL_USER=${MYSQL_USER}
       - MYSQL_PASSWORD=${MYSQL_PASSWORD}
     ports:
-      - "${MYSQL_PORT}:${MYSQL_PORT}"
+      - "${MYSQL_PORT}:3306"
     volumes:
       - mysql-data:/var/lib/mysql
     restart: unless-stopped
+
+  dbeaver:
+    image: dbeaver/cloudbeaver:latest 
+    container_name: humanresources_dbeaver
+    environment:
+      - CB_INIT_ROOT_USERNAME=${MYSQL_USER}       
+      - CB_INIT_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD} 
+      - MYSQL_DATABASE=${MYSQL_DATABASE}    
+    ports:
+      - "${DBEAVER_PORT}:8978"
+    restart: unless-stopped
+    depends_on:
+      - mysql
+    
 
 volumes:
   mysql-data:
