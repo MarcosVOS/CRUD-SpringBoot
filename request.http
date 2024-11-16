@@ -28,3 +28,34 @@ Content-Type: application/json
 
 ###
 DELETE http://localhost:8081/users/delete/1
+
+###
+GET http://localhost:8081/notes/all
+
+###
+POST http://localhost:8081/notes/create
+Content-Type: application/json
+
+{
+    "title": "Marck",  
+    "description": "marck@marck.com",
+    "createdBy": {
+        "id": 2
+    }
+}
+
+###
+PUT http://localhost:8081/notes/update
+Content-Type: application/json
+
+{
+  "id": 3,
+  "title": "Example Note",
+  "description": "This is a note content."
+}
+
+###
+DELETE http://localhost:8081/notes/delete/1
+
+###
+GET http://localhost:8081/notes/getallfromuser/2
