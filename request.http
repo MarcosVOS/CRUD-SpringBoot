@@ -6,9 +6,9 @@ POST http://localhost:8081/users/create
 Content-Type: application/json
 
 {
-    "username":"Marck",  
-    "useremail":"marck@marck.com",
-    "password":"marck123456",
+    "username":"Marck2",  
+    "useremail":"marck2@marck2.com",
+    "password":"marck1234567",
     "profile":"user",
     "avatar":"invalid"
 }

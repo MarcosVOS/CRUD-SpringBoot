@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -23,6 +24,9 @@ public class UserController {
     @Autowired
     UserRepository userRepository;
 
+    @Autowired
+    private PasswordEncoder passwordEncoder;
+
     @GetMapping(value="/all")
     public List<Users> getAllUsers(){
         return userRepository.findAll();
@@ -34,7 +38,7 @@ public class UserController {
         Users createUser = new Users();
         createUser.setUsername(user.getUsername());
         createUser.setUseremail(user.getUseremail());
-        createUser.setPassword(user.getPassword());
+        createUser.setPassword(passwordEncoder.encode(user.getPassword()));
         createUser.setProfile(user.getProfile());
         createUser.setAvatar(user.getAvatar());
 
@@ -50,7 +54,7 @@ public class UserController {
         updateUser.setId(getUser.getId());
         updateUser.setUsername(user.getUsername());
         updateUser.setUseremail(user.getUseremail());
-        updateUser.setPassword(user.getPassword());
+        updateUser.setPassword(passwordEncoder.encode(user.getPassword()));
         updateUser.setProfile(user.getProfile());
         updateUser.setAvatar(user.getAvatar());
 
