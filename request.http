@@ -59,3 +59,32 @@ DELETE http://localhost:8081/notes/delete/1
 
 ###
 GET http://localhost:8081/notes/getallfromuser/2
+
+###
+GET http://localhost:8081/noteSharing/all
+
+###
+POST http://localhost:8081/noteSharing/create
+Content-Type: application/json
+
+{
+    "sharedNoteId":{
+        "id":4
+    },
+    "sharedBy":{
+        "id":2
+    },
+    "sharedWith":{
+        "id":4
+    }
+}
+
+###
+DELETE http://localhost:8081/noteSharing/delete/3
+
+
+###
+GET http://localhost:8081/noteSharing/allsharedBy/2
+
+###
+GET http://localhost:8081/noteSharing/allsharedwith/4
